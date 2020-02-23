@@ -1,0 +1,84 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{wasysym}
+\usepackage{ebproof}
+
+\newcommand{\pity}[3]{\prod_{(#1~:~#2)} #3}
+\newcommand{\sigmaty}[3]{\sum_{(#1~:~#2)} #3}
+\newcommand{\univ}{\mathcal{U}}
+
+\title{Pointless Topology in Univalent Foundations}
+
+\date{\today}
+\author{Ayberk Tosun}
+\institute{Chalmers University of Technology}
+
+\begin{document}
+
+\maketitle
+
+%% Slide 1.
+\begin{frame}{Motivation}
+  \begin{align*}
+    \text{{\huge Top}}&\text{{\huge ology}}\\
+    \text{\alert{understood}} &~\text{\huge $\Downarrow$}~\text{\alert{constructively}} \\
+    \text{{\huge Pointles}}&\text{{\huge s~topology}}\\
+    \text{\alert{understood}} &~\text{\huge $\Downarrow$}~\text{\alert{predicatively}} \\
+    \text{{\huge Forma}}&\text{{\huge l~topology}}\\
+  \end{align*}
+\end{frame}
+
+%% Slide 2.
+\begin{frame}{Frames}
+  A poset $\mathcal{O}$ such that
+  \begin{itemize}
+    \item \alert{finite subsets} $\mathcal{O}$ have \alert{meets},
+    \item \alert{all subsets} of $\mathcal{O}$ have \alert{joins}, and
+    \item binary meets distribute over arbitrary joins:
+      \begin{equation*}
+        A \wedge \left( \bigvee_{i~:~I} \mathbf{B}_i \right) = \bigvee_{i~:~I} \left( A \wedge \mathbf{B}_i \right),
+      \end{equation*}
+      for any $A \in \mathcal{O}$ and $I$-indexed family $\mathbf{B}$ over $\mathcal{O}$.
+  \end{itemize}
+\end{frame}
+
+%% Slide 3.
+\begin{frame}{Presenting Frames: The Interaction Structure}
+  Take a poset equipped with an \alert{interaction structure}:
+  \begin{align*}
+    A ~&:~ \univ{}_m \\
+    \sqsubseteq ~&:~ A \rightarrow A \rightarrow \mathsf{hProp}_n\\
+    B ~&:~ A \rightarrow \univ{}_m\\
+    C ~&:~ \pity{x}{A}{B(x) \rightarrow \univ{}_m}\\
+    d ~&:~ \pity{x}{A}{\pity{y}{B(x)}{C(x, y) \rightarrow \univ{}_m}}
+  \end{align*}
+  that satisfies certain axioms.
+\end{frame}
+
+\begin{frame}{Presenting Frames: The Coverage Relation}
+  We define the following \alert{coverage} relation on it $\LHD$
+  \[
+    \begin{prooftree}
+      \hypo{ a~\epsilon~U }
+      \infer1[\textsf{dir}]{a \LHD U}
+    \end{prooftree}
+    \qquad
+    \begin{prooftree}
+      \hypo{d(a, b, c) \LHD U \rightarrow a \LHD U}
+      \infer1[\textsf{branch}]{a \LHD U}
+    \end{prooftree}
+  \]
+  which we cannot show to be propositional.
+\end{frame}
+
+%% Slide 4.
+\begin{frame}{Presenting Frames: $\LHD$ \emph{must} be propositional}
+  Hello, world!
+\end{frame}
+
+%% Slide 5.
+\begin{frame}{First Frame}
+  Hello, world!
+\end{frame}
+
+\end{document}
