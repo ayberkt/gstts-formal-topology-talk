@@ -6,6 +6,8 @@
 \newcommand{\pity}[3]{\prod_{(#1~:~#2)} #3}
 \newcommand{\sigmaty}[3]{\sum_{(#1~:~#2)} #3}
 \newcommand{\univ}{\mathcal{U}}
+\newcommand{\rulename}[1]{\textsf{\color{blue} #1}}
+\newcommand{\pow}[1]{\mathcal{P}\left( #1 \right)}
 
 \title{Pointless Topology in Univalent Foundations}
 
@@ -43,7 +45,7 @@
 \end{frame}
 
 %% Slide 3.
-\begin{frame}{Presenting Frames: The Interaction Structure}
+\begin{frame}{Presenting Frames: Interaction Structure}
   Take a poset equipped with an \alert{interaction structure}:
   \begin{align*}
     A ~&:~ \univ{}_m \\
@@ -53,6 +55,8 @@
     d ~&:~ \pity{x}{A}{\pity{y}{B(x)}{C(x, y) \rightarrow \univ{}_m}}
   \end{align*}
   that satisfies certain axioms.
+
+  This is our notion of a \alert{formal topology}.
 \end{frame}
 
 \begin{frame}{Presenting Frames: The Coverage Relation}
@@ -60,23 +64,50 @@
   \[
     \begin{prooftree}
       \hypo{ a~\epsilon~U }
-      \infer1[\textsf{dir}]{a \LHD U}
+      \infer1[\rulename{dir}]{a \LHD U}
     \end{prooftree}
     \qquad
     \begin{prooftree}
       \hypo{d(a, b, c) \LHD U \rightarrow a \LHD U}
-      \infer1[\textsf{branch}]{a \LHD U}
+      \infer1[\rulename{branch}]{a \LHD U}
     \end{prooftree}
   \]
   which we cannot show to be propositional.
 \end{frame}
 
-%% Slide 4.
+%% Slide 5.
 \begin{frame}{Presenting Frames: $\LHD$ \emph{must} be propositional}
-  Hello, world!
+  To show that our formal topologies present frames, we want to treat the coverage itself
+  as forming a predicate.
+
+  \vspace{2em}
+
+  \begin{center}
+    \begin{tabular}{l l}
+    We have                          & We want                                          \\
+    $\LHD : A \rightarrow \pow{A} \rightarrow \univ{}_m$ & $\LHD : A \rightarrow \pow{A} \rightarrow \mathsf{hProp}_m$          \\
+    $\RHD : \pow{A} \rightarrow A \rightarrow \univ{}_m$ & $\RHD : \pow{A} \rightarrow \pow{A}$
+    \end{tabular}
+  \end{center}
 \end{frame}
 
-%% Slide 5.
+%% Slides 5'.
+\begin{frame}{Presenting Frames: $\LHD$ \emph{must} be propositional}
+  To show that our formal topologies present frames, we want to treat the coverage itself
+  as forming a predicate.
+
+  \vspace{2em}
+
+  \begin{center}
+    \begin{tabular}{l l}
+    We have                          & We want                                          \\
+    $\LHD : A \rightarrow \pow{A} \rightarrow \univ{}_m$ & $\LHD : A \rightarrow \pow{A} \rightarrow \mathsf{hProp}_m$          \\
+    $\RHD : \pow{A} \rightarrow A \rightarrow \univ{}_m$ & \fbox{$\RHD : \pow{A} \rightarrow \pow{A}$}
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+%% Slide 6.
 \begin{frame}{First Frame}
   Hello, world!
 \end{frame}
