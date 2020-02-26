@@ -69,7 +69,7 @@
 
   This forms a \alert{frame}:
   \begin{align*}
-    \top                      &\quad\is{}\quad triv\\
+    \top                      &\quad\is{}\quad \lambda \_.~ \mathsf{1}\\
     A \wedge B                  &\quad\is{}\quad A \cap B\\
     \bigvee_{i~:~I} \mathbf{B}_i &\quad\is{}\quad \lambda x.~ \trunc{\sigmaty{i}{I}{x \in \mathbf{B}_i}}
   \end{align*}
@@ -77,11 +77,11 @@
 
 %% Slide 3.
 \begin{frame}{Nuclei of Frames}
-  Question: can we get all frames out of posets in this way?\\
+  Question: can we get all frames out of posets in this way?
 
   \vspace{1em}
 
-  One way is to use a technical notion called a \alert{nucleus}.
+  One way is to employ the notion of a \alert{nucleus}.
 
   \vspace{1em}
 
@@ -92,10 +92,6 @@
     \item $\mathbf{j}(x \wedge y) = \mathbf{j}(x) \wedge \mathbf{j}(y)$, and
     \item $\mathbf{j}(\mathbf{j}(x)) = \mathbf{j}(x)$ (idempotence).
   \end{enumerate}
-
-  \vspace{1em}
-
-  \textbf{The set of fixed points of a nucleus on a frame forms a frame.}
 \end{frame}
 
 %% Slide 4.
@@ -105,7 +101,7 @@
     A &\quad:\quad \univ{}_m\\
     \sqsubseteq &\quad:\quad A \rightarrow A \rightarrow \mathsf{hProp}_n
   \end{align*}
-  we want a \alert{closure operator} on it.
+  we can write down its topology as a \alert{closure operator}!
 
   \vspace{1em}
 
@@ -128,45 +124,52 @@
 %% Slide 5.
 \begin{frame}{Baire space}
   \begin{code}[hide]
-    {-# OPTIONS --cubical #-}
+  {-# OPTIONS --cubical #-}
 
-    open import Data.Nat using (ℕ)
-    open import Cubical.Core.Everything
-    open import Cubical.Foundations.Prelude using (isProp)
-    open import Function using (flip)
+  open import Data.Nat using (ℕ)
+  open import Cubical.Core.Everything
+  open import Cubical.Foundations.Prelude using (isProp)
+  open import Data.Product using (_×_; _,_)
+  open import Function using (flip)
   \end{code}
   \begin{code}
-    data 𝔻 : Type₀ where
-      nil   : 𝔻
-      _∷<_  : 𝔻 → ℕ → 𝔻
+  data 𝔻 : Type₀ where
+    nil  : 𝔻
+    _⌢_  : 𝔻 → ℕ → 𝔻
 
-    IsDC : (𝔻 → Type₀) → Type₀
-    IsDC U = (σ : 𝔻) (n : ℕ) → U σ → U (σ ∷< n)
+  IsDC : (𝔻 → Type₀) → Type₀
+  IsDC U = (σ : 𝔻) (n : ℕ) → U σ → U (σ ⌢ n)
 
-    data _◀_ (σ : 𝔻) (U : 𝔻 → Type₀) : Type₀ where
-      dir      : U σ → σ ◀ U
-      branch   : (n : ℕ) → ((σ ∷< n) ◀ U) → σ ◀ U
-      squash   : (φ ψ : σ ◀ U) → φ ≡ ψ
+  data _◀_ (σ : 𝔻) (U : 𝔻 → Type₀) : Type₀ where
+    dir      : U σ → σ ◀ U
+    branch   : ((n : ℕ) → (σ ⌢ n) ◀ U) → σ ◀ U
+    squash   : (φ ψ : σ ◀ U) → φ ≡ ψ
+
+  variable
+    m n : ℕ; σ τ : 𝔻; P Q : 𝔻 → Type₀
+
+  ◀-prop : isProp (σ ◀ P)
+  ◀-prop = squash
   \end{code}
 \end{frame}
 
 \begin{frame}{Baire space}
-  \begin{code}[hide]
-    variable
-      u v : 𝔻
-      P Q : 𝔻 → Type₀
-  \end{code}
   \begin{code}
-    ◀-prop : isProp (u ◀ P)
-    ◀-prop = squash
+  δ : σ ◀ P → ((v : 𝔻) → P v → v ◀ Q) → σ ◀ Q
+  δ (dir     uεP)         φ  = φ _ uεP
+  δ (branch  f)           φ  = branch (λ n → δ (f n) φ)
+  δ (squash  u◀P₀ u◀P₁ i) φ  = squash (δ u◀P₀ φ) (δ u◀P₁ φ) i
 
-    δ : u ◀ P → ((v : 𝔻) → P v → v ◀ Q) → u ◀ Q
-    δ (dir     uεP)          φ  = φ _ uεP
-    δ (branch  n u◀P)        φ  = branch n (δ u◀P φ)
-    δ (squash  u◀P₀ u◀P₁ i)  φ  = squash (δ u◀P₀ φ) (δ u◀P₁ φ) i
+  δ-corollary : σ ◀ (λ - → - ◀ P) → σ ◀ P
+  δ-corollary u◀◀P = δ u◀◀P (λ _ v◀P → v◀P)
 
-    prop₀-corollary : u ◀ (λ - → - ◀ P) → u ◀ P
-    prop₀-corollary u◀◀P = δ u◀◀P (λ _ v◀P → v◀P)
+  ζ : (n : ℕ) → IsDC P → σ ◀ P → (σ ⌢ n) ◀ P
+  ζ n dc (dir     σεP)         = dir (dc _ n σεP)
+  ζ n dc (branch  f)           = branch λ m → ζ m dc (f n)
+  ζ n dc (squash  σ◀P σ◀P′ i)  = squash (ζ n dc σ◀P) (ζ n dc σ◀P′) i
+
+  ζ′ : IsDC P → IsDC (λ - → - ◀ P)
+  ζ′ P-dc σ n σ◀P = ζ n P-dc σ◀P
   \end{code}
 \end{frame}
 
