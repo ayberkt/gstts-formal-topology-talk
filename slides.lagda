@@ -158,7 +158,7 @@
 \end{frame}
 
 \begin{frame}{Baire space ($\mathbb{N} \rightarrow \mathbb{N}$)}
-  \only<1-2>{
+  \only<1>{
   \begin{code}
   data _◀_ (σ : 𝔻) (P : 𝔻 → Type₀) : Type₀ where
     dir      : P σ → σ ◀ P
@@ -171,9 +171,10 @@
   \only<2>{
   Using the following, and then \emph{truncating from the outside} does not work.
   \begin{code}
-  data _◃_ (σ : 𝔻) (P : 𝔻 → Type₀) : Type₀ where
-    dir      : P σ → σ ◃ P
-    branch   : ((n : ℕ) → (σ ⌢ n) ◃ P) → σ ◃ P
+  data _◀⋆_ (σ : 𝔻) (P : 𝔻 → Type₀) : Type₀ where
+    dir      : P σ → σ ◀⋆ P
+    branch   : ((n : ℕ) → (σ ⌢ n) ◀⋆ P) → σ ◀⋆ P
+    -- squash : (φ ψ : σ ◀ P) → φ ≡ ψ
   \end{code}
     }
 
