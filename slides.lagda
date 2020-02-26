@@ -16,7 +16,7 @@
 \setmonofont{PragmataPro Mono Liga}
 \usepackage{agda}
 
-\title{Pointless Topology in Univalent Foundations}
+\title{Formal Topology in Univalent Foundations}
 
 \date{\today}
 \author{Ayberk Tosun}
