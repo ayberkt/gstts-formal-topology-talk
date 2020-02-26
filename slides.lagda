@@ -61,10 +61,6 @@
   \end{itemize}
 \end{frame}
 
-%% Slide 1.
-%% · A frame is nothing but a poset that has all finite meets, all joins, and satisfies
-%%   the following distributivity law. In point-set topology, this is justified
-%%   set-theoretically but as we abstract we have to account for it explicitly.
 \begin{frame}{Locales}
   A poset $\mathcal{O}$ such that
   \begin{itemize}
@@ -78,12 +74,8 @@
   \end{itemize}
 \end{frame}
 
-%% Slide 2.
-%% · One example of a frame is the frame constructed by taking poset and constructing its
-%%   set downward-closed subsets.
-%% · Notice that the join operator has to be a _truncated_ \Sigma.
 \begin{frame}{Locales of downward-closed subsets}
-  Given a poset 
+  Given a poset
   \begin{align*}
     A &\quad:\quad \univ{}_m\\
     \sqsubseteq &\quad:\quad A \rightarrow A \rightarrow \mathsf{hProp}_m
@@ -108,10 +100,6 @@
   \end{align*}
 \end{frame}
 
-%% Slide 3.
-%% · What is a nucleus? As you can see, it is just a monad on a poset, meaning it is a
-%%   certain modality, and it is an idea going back to Tarski that topologies are models
-%%   of modal logic, so we are really looking for the topological structure on this poset.
 \begin{frame}{Nuclei for frames}
   Question: can we get all frames out of posets in this way?
 
@@ -130,10 +118,6 @@
   \end{align}
 \end{frame}
 
-%% Slide 4.
-%% · We have a problem: the codomain is not hProp? Can we make it so?
-%%     Option: truncate. Not going to work.
-%%     Solution: truncate _from the inside_ so we can have both.
 \begin{frame}{Closure operators}
   In the particular case where $F$ is the locale of downward-closed subsets for a poset $A
   : \univ{}_m$, the nucleus can be seen as a \alert{closure operator}---\textbf{if it can
@@ -152,7 +136,6 @@
   \end{align*}
 \end{frame}
 
-%% Slide 5.1.
 \begin{frame}{Baire space ($\mathbb{N} \rightarrow \mathbb{N}$)}
   \begin{code}[hide]
   {-# OPTIONS --cubical #-}
@@ -174,7 +157,6 @@
   \end{code}
 \end{frame}
 
-%% Slide 5.2.
 \begin{frame}{Baire space ($\mathbb{N} \rightarrow \mathbb{N}$)}
   \only<1-2>{
   \begin{code}
@@ -204,7 +186,6 @@
   \end{code}
 \end{frame}
 
-%% Slide 5.2.
 \begin{frame}{Baire space ($\mathbb{N} \rightarrow \mathbb{N}$)}
   We can now prove the following idempotence law, without using countable choice
   ($\pity{i}{I}{\|  B_i \|} \rightarrow \| \pity{i}{I}{B_i} \|$).
@@ -246,8 +227,6 @@
   \end{code}
 \end{frame}
 
-
-%% Slide 5.3.
 \begin{frame}{Baire space ($\mathbb{N} \rightarrow \mathbb{N}$)}
   This example can be accessed at:
   \begin{center}
