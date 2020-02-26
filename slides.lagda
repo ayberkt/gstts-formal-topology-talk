@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[leqno]{beamer}
 \usetheme{metropolis}
 \usepackage{wasysym}
 \usepackage{ebproof}
