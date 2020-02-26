@@ -5,7 +5,7 @@
 
 \newcommand{\pity}[3]{\prod_{(#1~:~#2)} #3}
 \newcommand{\sigmaty}[3]{\sum_{(#1~:~#2)} #3}
-\newcommand{\univ}{\mathcal{U}}
+\newcommand{\univ}{\mathsf{Type}}
 \newcommand{\rulename}[1]{\textsf{\color{blue} #1}}
 \newcommand{\pow}[1]{\mathcal{P}\left( #1 \right)}
 \newcommand{\trunc}[1]{\left\| #1 \right\|}
