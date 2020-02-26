@@ -10,6 +10,7 @@
 \newcommand{\pow}[1]{\mathcal{P}\left( #1 \right)}
 \newcommand{\trunc}[1]{\left\| #1 \right\|}
 \newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\bj}{\mathbf{j}}
 \newcommand{\is}{:\equiv}
 
 \setmonofont{PragmataPro Mono Liga}
