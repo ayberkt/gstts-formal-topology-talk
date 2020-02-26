@@ -26,7 +26,14 @@
 
 \maketitle
 
-%% Slide 1.
+%% Slide I.
+%% · We start out with the simple question of doing topology in type theory.
+%% · We need to understand it not only constructively but also predicatively.
+%% · To understand it constructively, we formulate topology without the points.
+%% · To understand it predicatively, we resort to _formal_ topology in which we try to
+%%   write down a topology as though it were a rule-based formal proof system.
+%% Mention that the predicativity problem was solved in traditional formal topology, but
+%% in univalent foundations there is a problem and this talk focuses on that.
 \begin{frame}{Motivation}
   \begin{align*}
     \text{{\huge Top}}&\text{{\huge ology}}\\
@@ -55,7 +62,7 @@
     \item \alert{all subsets} of $\mathcal{O}$ have \alert{joins}, and
     \item binary meets distribute over arbitrary joins:
       \begin{equation*}
-        A \wedge \left( \bigvee_{i~:~I} \mathbf{B}_i \right) = \bigvee_{i~:~I} \left( A \wedge \mathbf{B}_i \right),
+        a \wedge \left( \bigvee_{i~:~I} b_i \right) = \bigvee_{i~:~I} \left( a \wedge b_i \right),
       \end{equation*}
       for any $A \in \mathcal{O}$ and $I$-indexed family $\mathbf{B}$ over $\mathcal{O}$.
   \end{itemize}
