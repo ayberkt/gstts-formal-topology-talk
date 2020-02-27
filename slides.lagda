@@ -65,7 +65,7 @@
     \sqsubseteq &\quad:\quad A \rightarrow A \rightarrow \mathsf{hProp}_m
   \end{align*}
   the type of \alert{downward-closed subsets} of $A$ is:
-  \[ \sigmaty{U}{\pow{A}}{\pity{x~y}{A}{x \in U \rightarrow y \sqsubseteq x \rightarrow y \in U}} \]
+  \[ \sigmaty{U}{\pow{A}}{\pity{x~y}{A}{x \in U \rightarrow y \sqsubseteq x \rightarrow y \in U}}, \]
   \begin{center}
     where
   \end{center}
