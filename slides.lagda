@@ -55,8 +55,8 @@
 \begin{frame}{What locales are like}
   \begin{itemize}
     \item<1-> Abstraction of open sets of a topology.
-    \item<1-> Logic of ``observable properties''.
-    \item<1-> CS view: logic of ``semidecidable properties''.
+    \item<1-> Logic of \emph{observable properties}.
+    \item<1-> CS view: logic of \emph{semidecidable properties}.
     \item<2> ``Junior-grade topos theory''.
   \end{itemize}
 \end{frame}
