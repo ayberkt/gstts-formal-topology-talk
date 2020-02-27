@@ -71,12 +71,12 @@
   \end{center}
   \begin{align*}
     &\mathcal{P} : \univ{}_m \rightarrow \univ{}_{m+1}\\
-    &\mathcal{P}(A) \is A \rightarrow \mathsf{hProp}_m
+    &\mathcal{P}(A) \is A \rightarrow \mathsf{hProp}_m.
   \end{align*}
 \end{frame}
 
 \begin{frame}
-  This forms a \alert{frame}:
+  This forms a \alert{locale}:
   \begin{align*}
     \top                      &\quad\is{}\quad \lambda \_.~ \mathsf{1}\\
     A \wedge B                  &\quad\is{}\quad \lambda x.~ (x \in A) \times (x \in B)\\
