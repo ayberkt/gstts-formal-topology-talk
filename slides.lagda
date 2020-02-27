@@ -84,8 +84,8 @@
   \end{align*}
 \end{frame}
 
-\begin{frame}{Nuclei for frames}
-  Question: can we get all frames out of posets in this way?
+\begin{frame}{Nuclei for locales}
+  Question: can we get all locales out of posets in this way?
 
   \vspace{1em}
 
