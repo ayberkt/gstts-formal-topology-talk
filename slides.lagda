@@ -163,7 +163,7 @@
   data _◀_ (σ : 𝔻) (P : 𝔻 → Type₀) : Type₀ where
     dir      : P σ → σ ◀ P
     branch   : ((n : ℕ) → (σ ⌢ n) ◀ P) → σ ◀ P
-    squash   : (φ ψ : σ ◀ P) → φ ≡ ψ
+    squash   : (p q : σ ◀ P) → p ≡ q
   \end{code}
   We can now show that this defines a nucleus, without choice!
   }
