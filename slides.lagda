@@ -193,7 +193,7 @@
   \begin{code}
   δ : σ ◀ P → ((v : 𝔻) → P v → v ◀ Q) → σ ◀ Q
   δ (dir     uεP)          φ  = φ _ uεP
-  δ (branch  f)            φ  = branch (λ n →  δ (f n) φ)
+  δ (branch  f)            φ  = branch (λ n →  δ (f n) φ) --> problem
   δ (squash  u◀P₀ u◀P₁ i)  φ  = squash (δ u◀P₀ φ) (δ u◀P₁ φ) i
 
   idempotence : σ ◀ (λ - → - ◀ P) → σ ◀ P
