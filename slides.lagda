@@ -26,14 +26,6 @@
 
 \maketitle
 
-%% Slide I.
-%% · We start out with the simple question of doing topology in type theory.
-%% · We need to understand it not only constructively but also predicatively.
-%% · To understand it constructively, we formulate topology without the points.
-%% · To understand it predicatively, we resort to _formal_ topology in which we try to
-%%   write down a topology as though it were a rule-based formal proof system.
-%% Mention that the predicativity problem was solved in traditional formal topology, but
-%% in univalent foundations there is a problem and this talk focuses on that.
 \begin{frame}{Motivation}
   \begin{align*}
     \text{{\huge Top}}&\text{{\huge ology}}\\
@@ -44,14 +36,6 @@
   \end{align*}
 \end{frame}
 
-%% Slide II.
-%% · In pointless topology, we work with algebraic structures generalising the lattice of
-%%   open sets of a topological space.
-%% · They can be viewed as embodying a logic of propositions that can be verified through
-%%   finite evidence, which in CS we take to mean semi-decidability. Unfortunately, I do
-%%   not have time to go in depth into this.
-%% · Also, as Abramsky called it, they are some kind of junior-grade toposes. Many
-%%   theorems of topos theory, are generalisations of theorems of locale theory.
 \begin{frame}{What locales are like}
   \begin{itemize}
     \item<1-> Abstraction of open sets of a topology.
