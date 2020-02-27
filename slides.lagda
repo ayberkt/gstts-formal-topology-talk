@@ -93,7 +93,7 @@
 
   \vspace{1em}
 
-  Let $F$ be a frame. A \alert{nucleus} on $F$ is an endofunction $\mathbf{j} : \abs{F} \rightarrow
+  Let $F$ be a locale. A \alert{nucleus} on $F$ is an endofunction $\mathbf{j} : \abs{F} \rightarrow
   \abs{F}$ such that
   \begin{align}
     &\pity{x~~}{A}{x \sqsubseteq \bj(x)} && [\text{extensiveness}],\\
