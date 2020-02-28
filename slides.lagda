@@ -19,7 +19,7 @@
 \title{Formal Topology in Univalent Foundations}
 
 \date{February 27, 2020}
-\author{Ayberk Tosun}
+\author{\textbf{Ayberk Tosun} and Thierry Coquand (Supervisor)}
 \institute{Chalmers University of Technology}
 
 \begin{document}
